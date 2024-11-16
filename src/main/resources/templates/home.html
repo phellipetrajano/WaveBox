@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Box</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { 
+            background-image: url('imagens/background2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif; /* Fonte mais agradável */
+            color: #333; /* Cor do texto */
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove padding padrão */
+        }
+
+        header {
+            display: flex; /* Usar flexbox para alinhar itens */
+            align-items: center; /* Alinha verticalmente no centro */
+            justify-content: center; /* Centraliza horizontalmente */
+            padding: 20px; /* Espaçamento interno */
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            border-bottom: 1px solid #ccc; /* Linha de separação */
+        }
+
+        header h1 {
+            margin: 0 10px; /* Margem entre a logo e o título */
+            font-size: 24px; /* Tamanho da fonte do título */
+            text-align: center; /* Centraliza o texto do título */
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo do menu */
+            padding: 10px; /* Espaçamento interno do menu */
+            text-align: center; /* Centraliza os links do menu */
+        }
+
+        nav a {
+            margin: 0 15px; /* Espaçamento entre os links */
+            text-decoration: none; /* Remove sublinhado */
+            color: rgb(6, 202, 187); /* Cor dos links */
+            font-weight: bold; /* Negrito */
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Sublinha ao passar o mouse */
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(5, 173, 160); /* Fundo do rodapé */
+            text-align: center; /* Centraliza o texto do rodapé */
+            padding: 10px; /* Espaçamento interno do rodapé */
+            border-top: 0; /* Linha de separação */
+        }
+    </style>
+</head>
+<body>
+    <header id="site-header" class="effect-three clr" data-height="105" itemscope="itemscope" itemtype="https://schema.org/WPHeader" role="banner">
+        <div class="elementor-widget-container">
+            <a href="home">
+                <img width="50" height="43" src="imagens/wb-logo.png" title="logo" alt="logo">
+            </a>
+            <h1>Wave Box</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="home">Home</a>
+        <a href="sobre">Sobre</a>
+        <a href="produto">Produto</a>
+        <a href="login">Login</a>
+        <a href="registro">Cadastre-se</a>
+    </nav>
+
+    <div class="banner">
+        <!-- Conteúdo do banner aqui -->
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Wave Box. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
