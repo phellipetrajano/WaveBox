@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UsuarioService {
+public class UsuarioServiceimpl {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -27,6 +27,4 @@ public class UsuarioService {
     public Optional<Usuario> buscarClientePorCpf(String cpf) {
         return usuarioRepository.findByCpf(cpf);  // Busca o usuário no banco de dados
     }
-
-    // Outros métodos (deletar, atualizar) podem ser adicionados conforme necessário
 }

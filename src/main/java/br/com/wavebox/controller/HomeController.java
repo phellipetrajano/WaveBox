@@ -10,6 +10,7 @@ public class HomeController {
     public String home() {
         return "home"; // Retorna a página home.html
     }
+
     @GetMapping("/home")
     public String homes() {
         return "home"; // Retorna a página home.html
