@@ -32,14 +32,14 @@ public class SecurityConfig {
 	 
 	    http.authorizeHttpRequests(
 	            auth -> auth
-	            .requestMatchers("/home", "/cadastro", "/dashboard","/", "/css/**", "/produto","/sobre","/contato", "/imagens/**","/escolas","/teste","/cadastrar_usuario").permitAll()
-	            .requestMatchers("").hasAnyAuthority("cliente","admin")		         
+	            .requestMatchers("/home", "/pedido","/","/css/**", "/produto","/sobre","/contato", "/imagens/**","/cadastro").permitAll()
+	            .requestMatchers("/login").hasAnyAuthority("cliente","admin")		         
 	            .requestMatchers("/admin/**").hasAnyAuthority("admin")	
 	
 	            .anyRequest().authenticated()
 	           )
 	            .formLogin(formLogin -> formLogin	            		
-	                    .defaultSuccessUrl("/dashboard", true)
+	                    .defaultSuccessUrl("/home", true)
 	                    .loginPage("/login")
 	                    .permitAll()
 	            )
