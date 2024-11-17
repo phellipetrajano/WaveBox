@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/produtos")
+@RequestMapping("/produto")
 public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
 
     @GetMapping
-    public String listarProdutos(Model model) {
-        List<Produto> produtos = produtoService.listarProdutos();
-        model.addAttribute("produtos", produtos);
-        return "produtos"; // Retorna a página produtos.html
+    public String listarProduto(Model model) {
+        List<Produto> produto = produtoService.listarProdutos();
+        model.addAttribute("produto", produto);
+        return "produto"; // Retorna a página produtos.html
     }
 
     @PostMapping("/cadastrar")
     public String cadastrarProduto(Produto produto) {
         produtoService.cadastrarProduto(produto);
-        return "redirect:/produtos"; // Redireciona para a lista de produtos
+        return "redirect:/produto"; // Redireciona para a lista de produtos
     }
 }

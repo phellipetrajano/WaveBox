@@ -27,4 +27,51 @@ public class Assinatura {
     private String status;
 
     // Getters e Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getTipoPlano() {
+        return tipoPlano;
+    }
+
+    public void setTipoPlano(String tipoPlano) {
+        this.tipoPlano = tipoPlano;
+    }
+
+    public LocalDateTime getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(LocalDateTime dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public LocalDateTime getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(LocalDateTime dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

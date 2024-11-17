@@ -26,7 +26,12 @@ public class AuthController {
 
     @PostMapping("/cadastro")
     public String cadastrarUsuario(Usuario usuario, Model model) {
-        usuarioService.cadastrarUsuario(usuario);
-        return "redirect:/login"; // Redireciona para a página de login após o cadastro
+        try {
+            usuarioService.salvarCliente(usuario); // Salva o novo usuário
+            return "redirect:/login"; // Redireciona para a página de login após o cadastro
+        } catch (RuntimeException e) {
+            model.addAttribute("error", e.getMessage());
+            return "cadastro"; // Retorna para a página de cadastro em caso de erro
+        }
     }
 }
