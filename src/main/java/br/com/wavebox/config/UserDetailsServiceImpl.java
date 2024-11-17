@@ -1,4 +1,3 @@
-
 package br.com.wavebox.config;
 
 import jakarta.transaction.Transactional;
@@ -21,13 +20,13 @@ import br.com.wavebox.repository.UsuarioRepository;
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException {
 		
 		
-		UsuarioRepository usuario = this.usuarioRepository.getOneByCpf(cpf);
+		br.com.wavebox.model.Usuario usuario = this.userRepository.getOneByCpf(cpf);
 		
 		
 		if (usuario == null) {
