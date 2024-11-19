@@ -1,0 +1,75 @@
+/* Estilo geral */
+body {
+    background-image: url('../imagens/background2.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centraliza verticalmente */
+}
+
+/* Container principal */
+.form-container {
+    background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    padding: 20px;
+    width: 100%;
+    max-width: 400px; /* Limite de largura */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Título */
+.form-container h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #06c1b2f3;
+}
+
+/* Campos de entrada */
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Botões */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #06c1b2f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #00C9FF;
+}
+
+/* Link de recuperação ou para outra página */
+.form-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #06c1b2f3;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
