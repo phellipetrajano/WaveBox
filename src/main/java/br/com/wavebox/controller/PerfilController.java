@@ -7,19 +7,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class UsuarioController {
+public class PerfilController {
 
     private final UsuarioService usuarioService;
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public PerfilController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("/usuario")
-    public String usuario(String cpf, Model model) {
+    @GetMapping("/perfil")
+    public String perfil(String cpf, Model model) {
         Usuario usuario = usuarioService.buscarPorCpf(cpf)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com CPF: " + cpf));
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com o CPF: " + cpf));
         model.addAttribute("usuario", usuario);
-        return "usuario";
+        return "perfil";
     }
 }

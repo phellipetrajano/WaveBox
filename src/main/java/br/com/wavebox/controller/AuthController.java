@@ -1,45 +1,39 @@
 package br.com.wavebox.controller;
 
-import br.com.wavebox.model.Usuario;
-import br.com.wavebox.service.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.wavebox.model.Usuario;
+import br.com.wavebox.service.UsuarioService;
 
 @Controller
+@RequestMapping
 public class AuthController {
 
-    @Autowired
-    private UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    public AuthController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @GetMapping("/login")
-    public String login() {
-        return "login"; // Retorna a página login.html
+    public String loginPage() {
+        return "login"; // Nome do template HTML
     }
 
-    @GetMapping("/cadastro")
-    public String cadastro() {
-        return "cadastro"; // Retorna a página cadastro.html
+    @GetMapping("/signup")
+    public String signupPage() {
+        return "signup"; // Nome do template HTML
     }
 
-    @PostMapping("/cadastro")
-    public String cadastrarUsuario(@ModelAttribute Usuario usuario, Model model) {
-        try {
-            // Codificando a senha antes de salvar
-            String encodedPassword = passwordEncoder.encode(usuario.getPassword());
-            usuario.setPassword(encodedPassword);
-            usuarioService.salvarCliente(usuario); // Salva o novo usuário
-            return "redirect:/login"; // Redireciona para a página de login após o cadastro
-        } catch (RuntimeException e) {
-            model.addAttribute("error", e.getMessage());
-            return "cadastro"; // Retorna para a página de cadastro em caso de erro
-        }
+    @PostMapping("/signup")
+    public String handleSignup(@ModelAttribute Usuario usuario) {
+        String encodedPassword = usuarioService.encodePassword(usuario.getPassword());
+        usuario.setPassword(encodedPassword);
+        usuarioService.salvarCliente(usuario); // Salva o cliente com a senha criptografada
+        return "redirect:/login"; // Redireciona para o login após cadastro
     }
 }

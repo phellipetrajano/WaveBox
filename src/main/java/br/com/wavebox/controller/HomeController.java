@@ -6,13 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
-    public String home() {
-        return "home"; // Retorna a página home.html
-    }
-
     @GetMapping("/home")
-    public String homes() {
-        return "home"; // Retorna a página home.html
+    public String home() {
+        return "home"; // Certifique-se de que o arquivo `home.html` existe na pasta `templates`
     }
 }

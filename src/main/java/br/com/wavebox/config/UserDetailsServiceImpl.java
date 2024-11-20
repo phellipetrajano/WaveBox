@@ -1,35 +1,31 @@
 package br.com.wavebox.config;
 
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.wavebox.model.Usuario;
+import br.com.wavebox.repository.UsuarioRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Repository;
-import br.com.wavebox.repository.UsuarioRepository;
-import br.com.wavebox.model.Usuario;
+import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
-@Repository
-@Transactional
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    
-    @Autowired
-    private UsuarioRepository userRepository;
+
+    private final UsuarioRepository usuarioRepository;
+
+    public UserDetailsServiceImpl(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException {
-        // Usando o método findByCpf para buscar o usuário
-        Optional<Usuario> usuarioOptional = userRepository.findByCpf(cpf);
-        
-        // Verificando se o usuário existe
-        Usuario usuario = usuarioOptional.orElseThrow(() -> 
-            new UsernameNotFoundException("Usuário não encontrado.")
-        );
-        
-        // Retornando os detalhes do usuário
-        return new User(usuario.getUsername(), usuario.getPassword(), true, true, true, true, usuario.getAuthorities());
+        Usuario usuario = usuarioRepository.findByCpf(cpf)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com o CPF: " + cpf));
+
+        return User.builder()
+                .username(usuario.getCpf()) // O CPF é usado como o nome de usuário
+                .password(usuario.getPassword()) // A senha já deve estar criptografada no banco
+                .roles("USER") // Ajuste de acordo com as roles disponíveis
+                .build();
     }
 }
