@@ -21,19 +21,23 @@ public class AuthController {
 
     @GetMapping("/login")
     public String loginPage() {
-        return "login"; // Nome do template HTML
+        return "login"; // Nome do template HTML para a página de login
     }
 
-    @GetMapping("/signup")
-    public String signupPage() {
-        return "signup"; // Nome do template HTML
+    @GetMapping("/cadastro") // Rota para a página de cadastro
+    public String cadastroPage() {
+        return "cadastro"; // Nome do template HTML para a página de cadastro
     }
 
-    @PostMapping("/signup")
-    public String handleSignup(@ModelAttribute Usuario usuario) {
-        String encodedPassword = usuarioService.encodePassword(usuario.getPassword());
-        usuario.setPassword(encodedPassword);
-        usuarioService.salvarCliente(usuario); // Salva o cliente com a senha criptografada
-        return "redirect:/login"; // Redireciona para o login após cadastro
-    }
-}
+    @PostMapping("/cadastro")
+    public String handleCadastro(@ModelAttribute Usuario usuario) {
+        try {
+            String encodedPassword = usuarioService.encodePassword(usuario.getPassword());
+            usuario.setPassword(encodedPassword);
+            usuarioService.salvarCliente(usuario);
+            return "redirect:/login";
+        } catch (Exception e) {
+            e.printStackTrace(); // Loga a exceção no console
+            return "cadastro"; // Retorna à página de cadastro em caso de erro
+        }
+    }}

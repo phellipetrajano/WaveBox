@@ -23,8 +23,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com o CPF: " + cpf));
 
         return User.builder()
-                .username(usuario.getCpf()) // O CPF é usado como o nome de usuário
-                .password(usuario.getPassword()) // A senha já deve estar criptografada no banco
+                .username(usuario.getCpf())
+                .password(usuario.getSenha()) // Certifique-se de que a senha está criptografada
                 .roles("USER") // Ajuste de acordo com as roles disponíveis
                 .build();
     }

@@ -1,183 +1,51 @@
-/* Estilos globais */
-* {
+/* src/main/resources/static/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/images/background2.jpg') no-repeat center center fixed; 
+    background-size: cover;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body { 
-    background-image: url('imagens/background2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif; /* Fonte mais agradável */
-    color: #333; /* Cor do texto */
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove padding padrão */
-}
-
-a {
-    text-decoration: none;
-}
-
-/* Header */
-header {
-    display: flex; /* Usar flexbox para alinhar itens */
-    align-items: center; /* Alinha verticalmente no centro */
-    justify-content: center; /* Centraliza horizontalmente */
-    padding: 20px; /* Espaçamento interno */
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
-    border-bottom: 1px solid #ccc; /* Linha de separação */
-}
-
-header h1 {
-    margin: 0 10px; /* Margem entre a logo e o título */
-    font-size: 24px; /* Tamanho da fonte do título */
-    text-align: center; /* Centraliza o texto do título */
-}
-
-header img {
-    max-width: 50px; /* Ajusta o tamanho do logo */
-    height: auto;
-}
-
-/* Menu de navegação */
-nav {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo do menu */
-    padding: 10px; /* Espaçamento interno do menu */
-    text-align: center; /* Centraliza os links do menu */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-nav a {
-    margin: 0 15px; /* Espaçamento entre os links */
-    text-decoration: none; /* Remove sublinhado */
-    color: rgb(6, 202, 187); /* Cor dos links */
-    font-weight: bold; /* Negrito */
-    font-size: 1.1em; /* Tamanho da fonte */
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #00C9FF; /* Cor ao passar o mouse */
-    text-decoration: underline; /* Sublinha ao passar o mouse */
-}
-
-/* Banner */
-.banner {
-    background-image: url('imagens/background2.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    border-top: 0;
-}
-
-/* Seções */
-.section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
-
-.section p {
-    font-size: 1.2em;
-    color: #555;
-    line-height: 1.6;
-}
-
-/* Produtos */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste a largura mínima */
-    gap: 30px;
-    padding: 0 20px;
-}
-
-.product {
-    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-}
-
-.product img {
-    max-width: 100%; /* Ajuste para que a imagem ocupe 100% da largura do contêiner */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 8px; /* Bordas arredondadas */
-    margin-bottom: 5px;
-}
-
-.product h3 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-.product p {
-    font-size: 1.1em;
-    color: #777;
-}
-
-/* Contato */
-#contato p {
-    font-size: 1.3em;
-    color: #444;
-    margin-bottom: 10px;
-}
-
-/* Footer */
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(5, 173, 160); /* Fundo do rodapé */
-    text-align: center; /* Centraliza o texto do rodapé */
     color: white;
-    padding: 10px; /* Espaçamento interno do rodapé */
-    border-top: 0;
 }
 
-.footer p {
-    font-size: 1em;
-    margin: 0;
+h1 {
+    color: #fff;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .banner h2 {
-        font-size: 2em;
-    }
+form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-    header h1 {
-        font-size: 2.5em;
-    }
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-    nav a {
-        font-size: 1em;
-        margin: 0 10px;
-    }
+button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    .section h2 {
-        font-size: 2em;
-    }
+button:hover {
+    background-color: #4cae4c;
+}
 
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste a largura mínima em telas menores */
-    }
+img {
+    max-width: 100%;
+}
+
+.box-image {
+    width: 300px;
+    margin: 20px 0;
 }

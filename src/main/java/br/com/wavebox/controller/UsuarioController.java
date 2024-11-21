@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Optional;
+
 @Controller
 public class UsuarioController {
 
@@ -17,9 +19,12 @@ public class UsuarioController {
 
     @GetMapping("/usuario")
     public String usuario(String cpf, Model model) {
-        Usuario usuario = usuarioService.buscarPorCpf(cpf)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com CPF: " + cpf));
-        model.addAttribute("usuario", usuario);
-        return "usuario";
+        Optional<Usuario> usuario = usuarioService.buscarClientePorCpf(cpf);
+        if (usuario.isPresent()) {
+            model.addAttribute("usuario", usuario.get());
+        } else {
+            throw new RuntimeException("Usuário não encontrado com CPF: " + cpf);
+        }
+        return "usuario"; // Retorna a página usuario.html
     }
 }

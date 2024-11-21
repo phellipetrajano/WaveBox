@@ -31,8 +31,7 @@ public class SecurityConfig {
         http
             .csrf().disable()
             .authorizeRequests()
-            .requestMatchers("/login", "/signup", "/resources/**").permitAll() // Permitir acesso público para login e signup
-                .anyRequest().authenticated() // Qualquer outra requisição precisa ser autenticada
+            .anyRequest().permitAll() // Permitir acesso a todas as requisições
             .and()
             .formLogin()
                 .loginPage("/login") // URL da página de login

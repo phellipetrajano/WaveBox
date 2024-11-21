@@ -1,15 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wave Box</title>
+    <title>Wave Box - Home</title>
     <link rel="stylesheet" href="css/styles.css">
-   
+    <style>
+        body { 
+            background-image: url('imagens/background2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid #ccc;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: rgb(6, 202, 187);
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: rgb(6, 202, 187);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: rgb(0, 150, 136); /* Cor ao passar o mouse */
+        }
+
+        .banner {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .banner p {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .banner img {
+            max-width: 80%; /* Limita a largura da imagem do banner */
+            height: auto;
+            border-radius: 10px; /* Bordas arredondadas na imagem */
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(5, 173, 160);
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <header id="site-header" class="effect-three clr" data-height="105" itemscope="itemscope" itemtype="https://schema.org/WPHeader" role="banner">
+    <header id="site-header" class="effect-three clr" role="banner">
         <div class="elementor-widget-container">
             <a href="home">
                 <img width="50" height="43" src="imagens/wb-logo.png" title="logo" alt="logo">
@@ -27,7 +104,9 @@
     </nav>
 
     <div class="banner">
-        <!-- Conteúdo do banner aqui -->
+        <h2>Bem-vindo à Wave Box!</h2>
+        <p>Explore nossos produtos e serviços de qualidade.</p>
+        <img src="imagens/banner.jpg" alt="Banner da Wave Box">
     </div>
 
     <footer class="footer">

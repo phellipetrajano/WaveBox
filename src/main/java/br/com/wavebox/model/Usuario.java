@@ -1,7 +1,6 @@
 package br.com.wavebox.model;
 
 import java.util.Set;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -17,13 +16,12 @@ public class Usuario {
     private Long id;
 
     private String cpf;
-    private String senha;
-    
+    private String senha; // Mantenha o nome como 'senha' se for assim que você está usando
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> authorities;
 
     // Getters e setters
-
     public String getCpf() {
         return cpf;
     }
@@ -33,11 +31,11 @@ public class Usuario {
     }
 
     public String getSenha() {
-        return senha;
+        return senha; // Certifique-se de que este é o método correto
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        this.senha = senha; // Certifique-se de que este é o método correto
     }
 
     public Set<Role> getAuthorities() {
@@ -48,13 +46,12 @@ public class Usuario {
         this.authorities = authorities;
     }
 
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    // Adicione métodos para getPassword e setPassword se necessário
+    public String getPassword() {
+        return senha; // Retorna a senha
+    }
 
-	public void setPassword(String senhaCriptografada) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setPassword(String senhaCriptografada) {
+        this.senha = senhaCriptografada; // Define a senha criptografada
+    }
 }
